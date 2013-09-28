@@ -1,4 +1,6 @@
-bundle-cms
-==========
+CarteBlanche bundle - CMS
+========================
 
-The CMS bundle of CarteBlanche, base on "bundle-crud"
+The CMS bundle.
+
+This package is a bundle for the [CarteBlanche framework](https://github.com/atelierspierrot/carte-blanche).
