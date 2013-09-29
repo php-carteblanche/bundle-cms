@@ -11,14 +11,14 @@ namespace Cms\Controller;
 
 use \CarteBlanche\CarteBlanche;
 use \CarteBlanche\App\Container;
-use \CarteBlanche\App\Abstracts\AbstractController;
+use \CarteBlanche\Abstracts\AbstractController;
 use \CarteBlanche\Exception\NotFoundException;
 use \AutoObject\Controller\AutoObjectControllerAbstract;
 
 /**
  * The default CMS controller
  *
- * CMS controller extending the abstract \CarteBlanche\App\Abstracts\AbstractController class
+ * CMS controller extending the abstract \CarteBlanche\Abstracts\AbstractController class
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
@@ -530,7 +530,7 @@ class Cms extends AutoObjectControllerAbstract
 	public function getCmsModel($_mod = null)
 	{
 		$_altdb = $this->getContainer()->get('request')->getUrlArg('altdb');
-		$_structure = \CarteBlanche\Lib\AutoObject\AutoObjectMapper::getAutoObject( $_mod, $_altdb );
+		$_structure = \CarteBlanche\Library\AutoObject\AutoObjectMapper::getAutoObject( $_mod, $_altdb );
 		if (isset($_structure))
 			$model = $_structure->getModel();
 		else
