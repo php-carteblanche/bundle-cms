@@ -148,23 +148,16 @@ class Cms extends AutoObjectControllerAbstract
 					}
 				} 
 
-//_dbg($object,1);
-				$this->render(array(
+        		return array(self::$views_dir.'read_section.htm', array(
 					'title'=>$title,
-					'output'=> $this->view(
-						self::$views_dir.'read_section.htm',
-						array(
-							'altdb'=>$_altdb,
-							'table_name'=>$_mod,
-							'object'=>$object,
-							'fields'=>$model->getFieldsList(),
-							'relations'=>$model->getObjectRelations(),
-							'breadcrumb'=>$breadcrumb,
-							'toolbox'=>$toolbox
-						)
-					)
-				));
-				exit;
+                    'altdb'=>$_altdb,
+                    'table_name'=>$_mod,
+                    'object'=>$object,
+                    'fields'=>$model->getFieldsList(),
+                    'relations'=>$model->getObjectRelations(),
+                    'breadcrumb'=>$breadcrumb,
+                    'toolbox'=>$toolbox
+        		));
 			} 
 			else {
 				throw new NotFoundException("Section '$id' not found!");
@@ -223,23 +216,16 @@ class Cms extends AutoObjectControllerAbstract
 					'font_size_tools'=>true,
 				));
 
-//_dbg($object,1);
-				$this->render(array(
+        		return array(self::$views_dir.'read_section.htm', array(
 					'title'=>$title,
-					'output'=> $this->view(
-						self::$views_dir.'read_article.htm',
-						array(
-							'altdb'=>$_altdb,
-							'table_name'=>$_mod,
-							'object'=>$object,
-							'fields'=>$model->getFieldsList(),
-							'relations'=>$model->getObjectRelations(),
-							'breadcrumb'=>$breadcrumb,
-							'toolbox'=>$toolbox
-						)
-					)
-				));
-				exit;
+                    'altdb'=>$_altdb,
+                    'table_name'=>$_mod,
+                    'object'=>$object,
+                    'fields'=>$model->getFieldsList(),
+                    'relations'=>$model->getObjectRelations(),
+                    'breadcrumb'=>$breadcrumb,
+                    'toolbox'=>$toolbox
+        		));
 			} 
 			else {
 				throw new NotFoundException("Article '$id' not found!");
@@ -312,24 +298,17 @@ class Cms extends AutoObjectControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'home.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'slug_articles'=>$art_slug,
-				'slug_sections'=>$sct_slug,
-				'total'=>$art_total,
-				'pager'=>$art_pager,
-				'search_box'=>$searchbox,
-			)
-		);
-
-		$this->render(array(
-			'title'=>null,
-			'output'=> $ctt
-		));
+        return array(self::$views_dir.'home.htm', array(
+            'title'=>null,
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'slug_articles'=>$art_slug,
+            'slug_sections'=>$sct_slug,
+            'total'=>$art_total,
+            'pager'=>$art_pager,
+            'search_box'=>$searchbox,
+        ));
 	}
 
 	/**
@@ -368,21 +347,14 @@ class Cms extends AutoObjectControllerAbstract
 			'links'=>array()
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'sitemap.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'search_box'=>$searchbox,
-				'breadcrumb'=>$breadcrumb,
-			)
-		);
-
-		$this->render(array(
+        return array(self::$views_dir.'sitemap.htm', array(
 			'title'=>'Sitemap',
-			'output'=> $ctt
-		));
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'search_box'=>$searchbox,
+            'breadcrumb'=>$breadcrumb,
+        ));
 	}
 
 	public function searchAction($search = null, $offset = 0, $limit = 10)
@@ -466,25 +438,18 @@ class Cms extends AutoObjectControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'search_results.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'slug_articles'=>$art_slug,
-				'slug_sections'=>$sct_slug,
-				'total'=>$art_total+$sct_total,
-				'pager'=>$art_pager,
-				'breadcrumb'=>$breadcrumb,
-				'search_box'=>$searchbox,
-			)
-		);
-
-		$this->render(array(
+        return array(self::$views_dir.'search_results.htm', array(
 			'title'=>'Search results for "'.$search.'"',
-			'output'=> $ctt
-		));
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'slug_articles'=>$art_slug,
+            'slug_sections'=>$sct_slug,
+            'total'=>$art_total+$sct_total,
+            'pager'=>$art_pager,
+            'breadcrumb'=>$breadcrumb,
+            'search_box'=>$searchbox,
+        ));
 	}
 
 	public function followSectionBreadcrumb($object = null)

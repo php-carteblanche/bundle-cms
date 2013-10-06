@@ -23,7 +23,7 @@ if (empty($object_content_id)) $object_content_id = _getid('object_content',true
 			$related_table_name = $data['related_table'];
 		?>
 		<li>Related <?php echo str_replace('_id', '', $_rel); ?> : <a href="<?php echo build_url(array(
-			'controller'=>'cms','model'=>$related_table_name, 'id'=>$object[$_rel], 'altdb'=>$altdb
+			'controller'=>'cms','model'=>$related_table_name, 'id'=>$object[$_rel]['id'], 'altdb'=>$altdb
 		)); ?>" title="See this entry"><?php echo $value; ?></a></li>
 	<?php endif; ?>	
 	<?php endforeach; ?>
