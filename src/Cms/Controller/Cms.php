@@ -9,11 +9,12 @@
 
 namespace Cms\Controller;
 
-use \CarteBlanche\CarteBlanche;
-use \CarteBlanche\App\Container;
-use \CarteBlanche\Abstracts\AbstractController;
-use \CarteBlanche\Exception\NotFoundException;
-use \AutoObject\Controller\AutoObjectControllerAbstract;
+use \CarteBlanche\CarteBlanche,
+    \CarteBlanche\App\Container,
+    \CarteBlanche\Abstracts\AbstractController,
+    \CarteBlanche\Exception\NotFoundException;
+
+use \Crud\Controller\CrudControllerAbstract;
 
 /**
  * The default CMS controller
@@ -22,7 +23,7 @@ use \AutoObject\Controller\AutoObjectControllerAbstract;
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Cms extends AutoObjectControllerAbstract
+class Cms extends CrudControllerAbstract
 {
 
 	/**
