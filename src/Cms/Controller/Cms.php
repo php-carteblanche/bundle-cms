@@ -3,26 +3,27 @@
  * CarteBlanche - PHP framework package - CMS bundle
  * Copyleft (c) 2013 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
- * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/carte-blanche>
+ * License Apache-2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+ * Sources <http://github.com/php-carteblanche/carteblanche>
  */
 
 namespace Cms\Controller;
 
-use \CarteBlanche\CarteBlanche;
-use \CarteBlanche\App\Container;
-use \CarteBlanche\App\Abstracts\AbstractController;
-use \CarteBlanche\Exception\NotFoundException;
-use \AutoObject\Controller\AutoObjectControllerAbstract;
+use \CarteBlanche\CarteBlanche,
+    \CarteBlanche\App\Container,
+    \CarteBlanche\Abstracts\AbstractController,
+    \CarteBlanche\Exception\NotFoundException;
+
+use \Crud\Controller\CrudControllerAbstract;
 
 /**
  * The default CMS controller
  *
- * CMS controller extending the abstract \CarteBlanche\App\Abstracts\AbstractController class
+ * CMS controller extending the abstract \CarteBlanche\Abstracts\AbstractController class
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Cms extends AutoObjectControllerAbstract
+class Cms extends CrudControllerAbstract
 {
 
 	/**
@@ -148,23 +149,16 @@ class Cms extends AutoObjectControllerAbstract
 					}
 				} 
 
-//_dbg($object,1);
-				$this->render(array(
+        		return array(self::$views_dir.'read_section.htm', array(
 					'title'=>$title,
-					'output'=> $this->view(
-						self::$views_dir.'read_section.htm',
-						array(
-							'altdb'=>$_altdb,
-							'table_name'=>$_mod,
-							'object'=>$object,
-							'fields'=>$model->getFieldsList(),
-							'relations'=>$model->getObjectRelations(),
-							'breadcrumb'=>$breadcrumb,
-							'toolbox'=>$toolbox
-						)
-					)
-				));
-				exit;
+                    'altdb'=>$_altdb,
+                    'table_name'=>$_mod,
+                    'object'=>$object,
+                    'fields'=>$model->getFieldsList(),
+                    'relations'=>$model->getObjectRelations(),
+                    'breadcrumb'=>$breadcrumb,
+                    'toolbox'=>$toolbox
+        		));
 			} 
 			else {
 				throw new NotFoundException("Section '$id' not found!");
@@ -223,23 +217,16 @@ class Cms extends AutoObjectControllerAbstract
 					'font_size_tools'=>true,
 				));
 
-//_dbg($object,1);
-				$this->render(array(
+        		return array(self::$views_dir.'read_section.htm', array(
 					'title'=>$title,
-					'output'=> $this->view(
-						self::$views_dir.'read_article.htm',
-						array(
-							'altdb'=>$_altdb,
-							'table_name'=>$_mod,
-							'object'=>$object,
-							'fields'=>$model->getFieldsList(),
-							'relations'=>$model->getObjectRelations(),
-							'breadcrumb'=>$breadcrumb,
-							'toolbox'=>$toolbox
-						)
-					)
-				));
-				exit;
+                    'altdb'=>$_altdb,
+                    'table_name'=>$_mod,
+                    'object'=>$object,
+                    'fields'=>$model->getFieldsList(),
+                    'relations'=>$model->getObjectRelations(),
+                    'breadcrumb'=>$breadcrumb,
+                    'toolbox'=>$toolbox
+        		));
 			} 
 			else {
 				throw new NotFoundException("Article '$id' not found!");
@@ -312,24 +299,17 @@ class Cms extends AutoObjectControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'home.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'slug_articles'=>$art_slug,
-				'slug_sections'=>$sct_slug,
-				'total'=>$art_total,
-				'pager'=>$art_pager,
-				'search_box'=>$searchbox,
-			)
-		);
-
-		$this->render(array(
-			'title'=>null,
-			'output'=> $ctt
-		));
+        return array(self::$views_dir.'home.htm', array(
+            'title'=>null,
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'slug_articles'=>$art_slug,
+            'slug_sections'=>$sct_slug,
+            'total'=>$art_total,
+            'pager'=>$art_pager,
+            'search_box'=>$searchbox,
+        ));
 	}
 
 	/**
@@ -368,21 +348,14 @@ class Cms extends AutoObjectControllerAbstract
 			'links'=>array()
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'sitemap.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'search_box'=>$searchbox,
-				'breadcrumb'=>$breadcrumb,
-			)
-		);
-
-		$this->render(array(
+        return array(self::$views_dir.'sitemap.htm', array(
 			'title'=>'Sitemap',
-			'output'=> $ctt
-		));
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'search_box'=>$searchbox,
+            'breadcrumb'=>$breadcrumb,
+        ));
 	}
 
 	public function searchAction($search = null, $offset = 0, $limit = 10)
@@ -466,25 +439,18 @@ class Cms extends AutoObjectControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-		$ctt = $this->view(
-			self::$views_dir.'search_results.htm',
-			array(
-				'altdb'=>$_altdb,
-				'articles'=>$articles,
-				'sections'=>$sections,
-				'slug_articles'=>$art_slug,
-				'slug_sections'=>$sct_slug,
-				'total'=>$art_total+$sct_total,
-				'pager'=>$art_pager,
-				'breadcrumb'=>$breadcrumb,
-				'search_box'=>$searchbox,
-			)
-		);
-
-		$this->render(array(
+        return array(self::$views_dir.'search_results.htm', array(
 			'title'=>'Search results for "'.$search.'"',
-			'output'=> $ctt
-		));
+            'altdb'=>$_altdb,
+            'articles'=>$articles,
+            'sections'=>$sections,
+            'slug_articles'=>$art_slug,
+            'slug_sections'=>$sct_slug,
+            'total'=>$art_total+$sct_total,
+            'pager'=>$art_pager,
+            'breadcrumb'=>$breadcrumb,
+            'search_box'=>$searchbox,
+        ));
 	}
 
 	public function followSectionBreadcrumb($object = null)
@@ -530,7 +496,7 @@ class Cms extends AutoObjectControllerAbstract
 	public function getCmsModel($_mod = null)
 	{
 		$_altdb = $this->getContainer()->get('request')->getUrlArg('altdb');
-		$_structure = \CarteBlanche\Lib\AutoObject\AutoObjectMapper::getAutoObject( $_mod, $_altdb );
+		$_structure = \CarteBlanche\Library\AutoObject\AutoObjectMapper::getAutoObject( $_mod, $_altdb );
 		if (isset($_structure))
 			$model = $_structure->getModel();
 		else
