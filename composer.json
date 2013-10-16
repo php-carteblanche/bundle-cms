@@ -12,6 +12,7 @@
     }],
     "require": {
         "carte-blanche/core": "dev-cb_wip",
+        "carte-blanche/installer": "dev-cb_wip",
         "carte-blanche/bundle-crud": "dev-cb_wip"
     },
     "autoload": { 
