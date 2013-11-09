@@ -43,7 +43,7 @@ if (empty($sections_relations)) $sections_relations=array();
 foreach($articles as $_art) : 
 	if (empty($_art['rubrique_id']) || $_art['rubrique_id']==0) :
 		echo view(
-			\Cms\Controller\Cms::$views_dir.'sitemap_article_item.htm',
+			\Cms\Controller\Cms::$views_dir.'sitemap_article_item',
 			array(
 				'altdb'=>$altdb,
 				'articles'=>$articles,
@@ -57,7 +57,7 @@ endforeach;
 foreach($sections as $_sect) : 
 	if (empty($_sect['parent_id']) || $_sect['parent_id']==0) :
 		echo view(
-			\Cms\Controller\Cms::$views_dir.'sitemap_rubrique_item.htm',
+			\Cms\Controller\Cms::$views_dir.'sitemap_rubrique_item',
 			array(
 				'altdb'=>$altdb,
 				'articles'=>$articles,

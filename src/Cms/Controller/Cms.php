@@ -149,7 +149,7 @@ class Cms extends CrudControllerAbstract
 					}
 				} 
 
-        		return array(self::$views_dir.'read_section.htm', array(
+        		return array(self::$views_dir.'read_section', array(
 					'title'=>$title,
                     'altdb'=>$_altdb,
                     'table_name'=>$_mod,
@@ -217,7 +217,7 @@ class Cms extends CrudControllerAbstract
 					'font_size_tools'=>true,
 				));
 
-        		return array(self::$views_dir.'read_section.htm', array(
+        		return array(self::$views_dir.'read_section', array(
 					'title'=>$title,
                     'altdb'=>$_altdb,
                     'table_name'=>$_mod,
@@ -299,7 +299,7 @@ class Cms extends CrudControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-        return array(self::$views_dir.'home.htm', array(
+        return array(self::$views_dir.'home', array(
             'title'=>null,
             'altdb'=>$_altdb,
             'articles'=>$articles,
@@ -348,7 +348,7 @@ class Cms extends CrudControllerAbstract
 			'links'=>array()
 		));
 
-        return array(self::$views_dir.'sitemap.htm', array(
+        return array(self::$views_dir.'sitemap', array(
 			'title'=>'Sitemap',
             'altdb'=>$_altdb,
             'articles'=>$articles,
@@ -439,7 +439,7 @@ class Cms extends CrudControllerAbstract
 			'hiddens'=>$args, 'search_str'=>$search_str
 		));
 
-        return array(self::$views_dir.'search_results.htm', array(
+        return array(self::$views_dir.'search_results', array(
 			'title'=>'Search results for "'.$search.'"',
             'altdb'=>$_altdb,
             'articles'=>$articles,
