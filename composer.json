@@ -11,9 +11,9 @@
         "homepage": "http://www.ateliers-pierrot.fr/"
     }],
     "require": {
-        "carte-blanche/core": "dev-cb_wip",
-        "carte-blanche/installer": "dev-cb_wip",
-        "carte-blanche/bundle-crud": "dev-cb_wip"
+        "carte-blanche/core": "dev-master",
+        "carte-blanche/installer": "dev-master",
+        "carte-blanche/bundle-crud": "dev-master"
     },
     "autoload": { 
         "psr-0": { "Cms": "src" },
