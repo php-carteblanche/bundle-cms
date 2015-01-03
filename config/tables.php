@@ -1,13 +1,14 @@
 <?php
 /**
- * **Example tables user definitions.**
+ * This file is part of the CarteBlanche PHP framework.
  *
- * @category  CarteBlanche
- * @author    Piero Wbmstr <me@e-piwi.fr>
- * @license   GPL v3
- * @copyright Les Ateliers Pierrot <http://www.ateliers-pierrot.fr>
- * @link      https://github.com/php-carteblanche/carteblanche
- * @package   Settings
+ * (c) Pierre Cassat <me@e-piwi.fr> and contributors
+ *
+ * License Apache-2.0 <http://github.com/php-carteblanche/carteblanche/blob/master/LICENSE>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Example tables user definitions.
  */
 
 $tables = array(
