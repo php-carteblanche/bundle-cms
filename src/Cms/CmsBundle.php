@@ -12,23 +12,19 @@
 namespace Cms;
 
 use \CarteBlanche\CarteBlanche;
-use \Library\Helper\Directory as DirectoryHelper;
+use \CarteBlanche\Abstracts\AbstractBundle;
 
 class CmsBundle
+    extends AbstractBundle
 {
 
-    protected static $bundle_config_file = 'cms_config.ini';
-
-    public function __construct()
+    /**
+     * @param   array $options
+     * @return  mixed
+     */
+    public function init(array $options = array())
     {
-        $cfgfile = \CarteBlanche\App\Locator::locateConfig(self::$bundle_config_file);
-        if (!file_exists($cfgfile)) {
-            throw new ErrorException( 
-                sprintf('CMS bundle configuration file not found in "%s" [%s]!', $this->getPath('config_dir'), $cfgfile)
-            );
-        }
-        $cfg = CarteBlanche::getContainer()->get('config')
-            ->load($cfgfile, true, 'cms');
+        parent::init($options);
     }
 
 }

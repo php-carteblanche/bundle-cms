@@ -24,6 +24,7 @@
     }],
     "extra": {
         "views": "src/Cms/views",
+        "carte-blanche-i18n": [ "i18n/cmsbundle-i18n.csv" ],
         "carte-blanche-configs": [ "config/cms_config.ini", "config/tables.php" ],
         "branch-alias": {
             "dev-master": "0.1-dev"

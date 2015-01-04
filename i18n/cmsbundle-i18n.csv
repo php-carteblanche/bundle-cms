@@ -1,0 +1,20 @@
+index;fr;en
+;"Article ""%id%"" non trouvé!";"Article ""%id%"" not found!"
+;"Section ""%id%"" non trouvée!";"Section ""%id%"" not found!"
+;"Résultats de recherche pour ""%search%""";"Search results for ""%search%"""
+;"La structure de la table du CMS pour le modèle ""%model%"" n'a pas été trouvée!";"Table structure for CMS model ""%model%"" can not de found!"
+;posté le;posted on
+;Voir le plan du site;See website full map
+;plan du site;sitemap
+;Sous-sections;Sub-sections
+;Contenus;Contents
+;Dernière mise à jour le;Last update on
+;Créé le;Created on
+;Votre recherche n'a retourné aucun résultat.;Your search returns no result.
+;Votre recherche a retourné %nb% résultats.;Your search returns %nb% results.
+;Articles trouvés;Found articles
+;Sections trouvées;Found sections
+;accueil;home
+;Plan du site;Sitemap
+;Derniers articles;Last articles
+;%model% relatif;Related %model%
